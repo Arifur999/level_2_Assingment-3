@@ -82,7 +82,6 @@ INSERT INTO bookings (booking_id, user_id, vehicle_id, start_date, end_date, sta
 (10, 9, 2, '2024-02-20', '2024-02-22', 'confirmed', 120);
 
 
-
 SELECT
     bookings.booking_id,
     users.name AS customer_name,
@@ -93,3 +92,20 @@ INNER JOIN users
     ON bookings.user_id = users.user_id
 INNER JOIN vehicles
     ON bookings.vehicle_id = vehicles.vehicle_id;
+
+
+
+SELECT
+    vehicles.vehicle_id,
+    vehicles.name,
+    vehicles.type,
+    vehicles.model,
+    vehicles.registration_number,
+    vehicles.rental_price,
+    vehicles.status
+FROM vehicles
+WHERE NOT EXISTS (
+    SELECT *
+    FROM bookings
+    WHERE bookings.vehicle_id = vehicles.vehicle_id
+);
