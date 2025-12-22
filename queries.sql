@@ -7,3 +7,17 @@ CREATE TABLE users (
     role VARCHAR(20) NOT NULL,
     CHECK (role IN ('Admin', 'Customer'))
 );
+
+CREATE TABLE vehicles (
+    vehicle_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    type VARCHAR(20) NOT NULL,
+    model INT,
+    registration_number VARCHAR(50) NOT NULL UNIQUE,
+    rental_price DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    CHECK (type IN ('car', 'bike', 'truck')),
+    CHECK (status IN ('available', 'rented', 'maintenance'))
+);
+
+
