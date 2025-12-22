@@ -21,3 +21,22 @@ CREATE TABLE vehicles (
 );
 
 
+CREATE TABLE bookings (
+    booking_id INT PRIMARY KEY,
+    user_id INT NOT NULL,
+    vehicle_id INT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    total_cost DECIMAL(10,2) NOT NULL,
+
+    CHECK (status IN ('pending', 'confirmed', 'completed', 'cancelled')),
+
+    CONSTRAINT fk_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(user_id),
+
+    CONSTRAINT fk_vehicle
+        FOREIGN KEY (vehicle_id)
+        REFERENCES vehicles(vehicle_id)
+);
