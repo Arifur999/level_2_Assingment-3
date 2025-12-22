@@ -109,3 +109,21 @@ WHERE NOT EXISTS (
     FROM bookings
     WHERE bookings.vehicle_id = vehicles.vehicle_id
 );
+
+
+
+
+SELECT
+    vehicle_id,
+    name,
+    type,
+    model,
+    registration_number,
+    rental_price,
+    status
+FROM vehicles
+WHERE type = 'car'
+  AND status = 'available';
+
+
+  
