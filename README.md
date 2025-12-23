@@ -89,7 +89,7 @@ Logical One-to-One:
 Each booking is associated with exactly one user and one vehicle.
 
  Lucidchart ERD Link:
-https://lucid.app/lucidchart/fed6b9d2-e7f0-4fc8-9044-de63e34ce016
+[https://lucid.app/lucidchart/fed6b9d2-e7f0-4fc8-9044-de63e34ce016](https://lucid.app/lucidchart/fed6b9d2-e7f0-4fc8-9044-de63e34ce016/edit?viewport_loc=-2443%2C-1732%2C4655%2C2056%2C0_0&invitationId=inv_7125a5c0-720f-4c8d-a684-8fd0db726663)
 
 
 
