@@ -36,6 +36,8 @@ CREATE TABLE users (
     CHECK (role IN ('Admin', 'Customer'))
 );
 
+```
+
 Vehicles Table
 
 Stores vehicle details and availability status.
@@ -52,7 +54,7 @@ CREATE TABLE vehicles (
     CHECK (type IN ('car', 'bike', 'truck')),
     CHECK (status IN ('available', 'rented', 'maintenance'))
 );
-
+```
 Bookings Table
 
 Stores booking details and links users with vehicles.
@@ -71,7 +73,7 @@ CREATE TABLE bookings (
     FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id)
 );
 
-
+```
 
 ERD Relationships
 
@@ -97,7 +99,7 @@ INSERT INTO users VALUES
 (1, 'Alice', 'alice@example.com', 'pass123', '1234567890', 'Customer'),
 (2, 'Bob', 'bob@example.com', 'pass234', '0987654321', 'Admin'),
 (3, 'Charlie', 'charlie@example.com', 'pass345', '1122334455', 'Customer');
-
+```
 Vehicles
 
 ```
@@ -106,7 +108,7 @@ INSERT INTO vehicles VALUES
 (2, 'Honda Civic', 'car', 2021, 'DEF-456', 60, 'rented'),
 (3, 'Yamaha R15', 'bike', 2023, 'GHI-789', 30, 'available'),
 (4, 'Ford F-150', 'truck', 2020, 'JKL-012', 100, 'maintenance');
-
+```
 Bookings
 
 ```
@@ -116,7 +118,7 @@ INSERT INTO bookings VALUES
 (3, 3, 2, '2023-12-01', '2023-12-02', 'confirmed', 60),
 (4, 1, 1, '2023-12-10', '2023-12-12', 'pending', 100);
 
-
+```
 SQL Queries
 Query 1: INNER JOIN
 
@@ -135,7 +137,7 @@ INNER JOIN users
 INNER JOIN vehicles
     ON bookings.vehicle_id = vehicles.vehicle_id;
 
-
+```
 Query 2: NOT EXISTS
 
 Find vehicles that have never been booked.
@@ -147,7 +149,7 @@ WHERE NOT EXISTS (
     FROM bookings
     WHERE bookings.vehicle_id = vehicles.vehicle_id
 );
-
+```
 
 Query 3: WHERE
 
@@ -158,7 +160,7 @@ FROM vehicles
 WHERE type = 'car'
   AND status = 'available';
 
-
+```
 Query 4: GROUP BY & HAVING
 
 Find vehicles with more than two bookings.
@@ -172,7 +174,7 @@ INNER JOIN vehicles
     ON bookings.vehicle_id = vehicles.vehicle_id
 GROUP BY vehicles.name
 HAVING COUNT(bookings.booking_id) > 2;
-
+```
 
 Conclusion
 
